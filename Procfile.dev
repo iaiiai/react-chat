@@ -1,2 +1,2 @@
-web: make start-backend
+web: node server/bin/slack.js
 frontend: make start-frontend
