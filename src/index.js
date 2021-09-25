@@ -10,6 +10,7 @@ import '../assets/application.scss';
 
 // import faker from 'faker';
 // @ts-ignore
+// eslint-disable-next-line import/order
 import gon from 'gon';
 // import cookies from 'js-cookie';
 // import io from 'socket.io-client';
@@ -18,7 +19,5 @@ if (process.env.NODE_ENV !== 'production') {
   localStorage.debug = 'chat:*';
 }
 
-ReactDOM.render(<App gon={gon}/>, document.getElementById('root'));
-
-
-console.log('gon', gon);
+// eslint-disable-next-line react/jsx-filename-extension
+ReactDOM.render(<App gon={gon} />, document.getElementById('root'));

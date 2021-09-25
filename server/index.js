@@ -35,6 +35,7 @@ const setUpStaticAssets = (app) => {
 };
 
 export default (options) => {
+  // @ts-ignore
   const app = fastify({ logger: true, prettyPrint: true });
 
   setUpViews(app);

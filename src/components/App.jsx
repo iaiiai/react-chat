@@ -1,24 +1,27 @@
 import React from 'react';
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+import Room from './channels/Room';
+import Channels from './channels/Channels';
+import generateNickName from '../utils/nickNameGenerator';
 
 const App = (props) => {
+  document.cookie = generateNickName();
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center">
-      <h4>Channels list</h4>
-      <ul className="list-group">
-        {props
-        .gon
-        .channels
-        .map(
-          (element) => (
-            <li className="list-group-item">
-              <span class="badge bg-secondary text-light mr-1">ID: {element.id}</span>
-              <span class="lead mr-1">{element.name.toUpperCase()}</span>
-              {element.removable ? <span className="badge rounded-pill bg-success">Removable</span> : <span className="badge rounded-pill bg-danger text-light">Unremovable</span>}
-            </li>)
-          )}
-      </ul>
-    </div>
-    );
+    <Router>
+      <div className="d-flex flex-column justify-content-center align-items-center">
+        <Switch>
+          <Route exact path="/">
+            <Channels gon={props} />
+          </Route>
+          <Route exact path="/api/v1/channels/:id" component={Room} />
+        </Switch>
+      </div>
+    </Router>
+  );
 };
 
 export default App;
