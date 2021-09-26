@@ -10,7 +10,7 @@ const Room = () => {
   const [channelID, setChannelID] = useState(null);
   const sendMessageRequest = async (text, from) => {
     try {
-      return await axios.post(`http://localhost:5000/api/v1/channels/${channelID}/messages`, {
+      return await axios.post(`https://chat-app-n1.herokuapp.com/api/v1/channels/${channelID}/messages`, {
         data: {
           attributes: {
             text,
